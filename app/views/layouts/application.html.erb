@@ -6,15 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
   </head>
-
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <div><%= notice %></div>
-      <div><%= alert %></div>
+    <main class="min-h-screen">
+      <% if notice %>
+        <div>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="uk-alert" uk-alert>
+          <%= alert %>
+        </div>
+      <% end %>
       <% if user_signed_in? %>
         <%= link_to "Edit password", edit_password_path %>
         <%= button_to "Log Out", session_path, method: :delete %>
