@@ -19,8 +19,9 @@
         </div>
       <% end %>
       <% if alert %>
-        <div class="uk-alert" uk-alert>
+        <div class="uk-alert uk-alert-danger" uk-alert>
           <%= alert %>
+          <a href class="uk-alert-close" uk-close></a>
         </div>
       <% end %>
       <% if user_signed_in? %>

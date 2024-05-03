@@ -1,11 +1,23 @@
-<h1>Reset your password</h1>
-
-<%= form_with model: @user, url: password_reset_path do |form| %>
-    <div>
-        <%= form.label :email %>
-        <%= form.email_field :email %>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="uk-card container">
+    <div class="uk-card-header">
+      <h1 class="uk-card-title">Reset your password</h1>
     </div>
-    <div>
-        <%= form.submit 'Reset password' %>
+    <div class="uk-card-body">
+      <%= form_with model: @user, url: password_reset_path, html: {class: "uk-form-stacked"} do |form| %>
+        <div>
+          <%= form.label :email, class: "uk-form-label" %>
+          <%= form.email_field :email, class: 'uk-input', required: true %>
+        </div>
+        <div class="mt-6">
+          <%= form.submit 'Reset your password', class: 'uk-button uk-button-primary' %>
+        </div>
+      <% end %>
     </div>
-<% end %>
+    <div class="uk-card-footer">
+      <p><span>Already signed in?</span>
+        <%= link_to "Log In", new_session_path, class: "text-muted-foreground link" %>
+      </p>
+    </div>
+  </div>
+</div>

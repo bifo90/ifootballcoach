@@ -1,24 +1,31 @@
-<h1>Update passowrd</h1>
-
-<%= form_with model: current_user, url: password_path do |form| %>
-    <% if form.object.errors.any? %>
-        <%= form.object.errors.full_messages.each do |message| %>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="uk-card container">
+    <div class="uk-card-header">
+      <h1 class="uk-card-title">Update Password</h1>
+    </div>
+    <div class="uk-card-body">
+      <%= form_with model: current_user, url: password_path, html: {class: "uk-form-stacked"} do |form| %>
+        <% if form.object.errors.any? %>
+          <%= form.object.errors.full_messages.each do |message| %>
             <div><%= message %></div>
+          <% end %>
         <% end %>
-    <% end %>
-    <div>
-        <%= form.label :password_challenge, "Current Password" %>
-        <%= form.password_field :password_challenge %>
+        <div>
+          <%= form.label :password_challenge, class: "uk-form-label" %>
+          <%= form.password_field :password_challenge, class: 'uk-input' %>
+        </div>
+        <div class="mt-3">
+          <%= form.label :password, class: "uk-form-label" %>
+          <%= form.password_field :password, class: 'uk-input' %>
+        </div>
+        <div class="mt-3">
+          <%= form.label :password_confirmation, class: "uk-form-label" %>
+          <%= form.password_field :password_confirmation, class: 'uk-input' %>
+        </div>
+        <div class="mt-6">
+          <%= form.submit 'Update password', class: 'uk-button uk-button-primary' %>
+        </div>
+      <% end %>
     </div>
-    <div>
-        <%= form.label :password, "New Password" %>
-        <%= form.password_field :password %>
-    </div>
-    <div>
-        <%= form.label :password_confirmation %>
-        <%= form.password_field :password_confirmation %>
-    </div>
-    <div>
-        <%= form.submit "Update password" %>
-    </div>
-<% end %>
+  </div>
+</div>

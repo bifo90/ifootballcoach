@@ -6,4 +6,10 @@
   .link {
     @apply underline underline-offset-4 hover:text-primary;
   }
+  .field_with_errors label.uk-form-label {
+    @apply text-red-500;
+  }
+  .field_with_errors input.uk-input {
+    @apply border-red-500;
+  }
 }

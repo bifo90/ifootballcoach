@@ -19,7 +19,16 @@ export default {
     ui({
       components: {
         alert: {
-          hooks: shadcn.alert
+          hooks: {
+            'hook-alert': {
+              '@apply rounded-lg border border-red-500 px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7 fixed bottom-0 left-1/2 transform -translate-x-1/2 w-fit flex items-center gap-4 justify-between': {}
+            },
+            'hook-close': {
+              position: 'relative',
+              top: 0,
+              right: 0
+            }
+          }
         },
         card: {
           hooks: shadcn.card
